@@ -12,6 +12,8 @@ services:
   
 before_install:
    # Prepare MySQL schema
+  - mysql < ./application/schema/schema.sql
+  - mysql -e "SET PASSWORD = PASSWORD('travisci');"
 
 script:
   - composer update
