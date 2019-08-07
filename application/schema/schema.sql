@@ -16,6 +16,27 @@
 CREATE DATABASE IF NOT EXISTS `phpday2019` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `phpday2019`;
 
+-- 傾印  表格 phpday2019.order 結構
+CREATE TABLE IF NOT EXISTS `order` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL DEFAULT '0',
+  `address` varchar(50) NOT NULL DEFAULT '0',
+  `phone` varchar(50) NOT NULL DEFAULT '0',
+  `total_price` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='訂單';
+
+-- 取消選取資料匯出。
+-- 傾印  表格 phpday2019.order_item 結構
+CREATE TABLE IF NOT EXISTS `order_item` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) NOT NULL DEFAULT 0 COMMENT '訂單編號',
+  `product_id` int(11) NOT NULL COMMENT '產品編號',
+  `price` decimal(10,2) DEFAULT NULL COMMENT '價格',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='訂單項目';
+
+-- 取消選取資料匯出。
 -- 傾印  表格 phpday2019.products 結構
 CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
