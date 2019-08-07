@@ -1,0 +1,18 @@
+default:
+  suites:
+    default:
+      contexts:
+        - FeatureContext
+  extensions:
+    Behat\MinkExtension:
+      browser_name: chrome
+      javascript_session: selenium2
+      base_url: http://127.0.0.1
+      sessions:
+        my_session:
+          goutte:
+            guzzle_parameters:
+              verify: false
+      selenium2:
+        wd_host: "http://localhost:4444/wd/hub"
+        capabilities: { "browser": "chrome" }
