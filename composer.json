@@ -11,9 +11,11 @@
 		"kenjis/ci-phpunit-test": "^0.17.0"
 	},
 	"autoload": {
+		"psr-4": {
+			"Core\\": "application/core"
+		},
 		"classmap": [
-			"application/models",
-			"application/core"
+			"application/models"
 		]
 	}
 }

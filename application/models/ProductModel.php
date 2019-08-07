@@ -1,13 +1,9 @@
 <?php
 
+use Core\general\Model;
 
-class ProductModel extends CI_Model
+
+class ProductModel extends Model
 {
-
-    private $table = 'products';
-
-
-    public function append($data) {
-        return $this->db->insert($this->table, $data);
-    }
+    protected $table = 'products';
 }

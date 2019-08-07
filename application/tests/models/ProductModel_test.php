@@ -1,6 +1,5 @@
 <?php
 
-
 class ProductModel_test extends UnitTestCase
 {
     /**
@@ -8,7 +7,10 @@ class ProductModel_test extends UnitTestCase
      */
     private $model;
 
-    protected function setUp()
+    /**
+     * @setup
+     */
+    public function setUp()
     {
         $this->model = $this->newModel('ProductModel');
     }
@@ -21,4 +23,5 @@ class ProductModel_test extends UnitTestCase
         ]);
         $this->assertTrue($res);
     }
+
 }
