@@ -1,0 +1,21 @@
+language: php
+
+
+php:
+  - 5.6
+  - 7.1
+  - 7.2
+  - 7.3
+
+services:
+  - mysql
+  
+before_install:
+  - cd application
+  - composer update
+   # Prepare MySQL schema
+
+script:
+  - composer update
+  - cd application/tests
+  - /../vendor/bin/phpunit -c phpunit.xml
