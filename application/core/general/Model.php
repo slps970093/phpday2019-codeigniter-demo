@@ -25,6 +25,18 @@ abstract class Model extends \CI_Model
         return $res;
     }
 
+
+    /**
+     * 多筆資料寫入
+     * @param $data
+     * @return mixed
+     */
+    public function multi_append($data) {
+        $res = $this->db->insert_batch($this->table,$data);
+
+        return $res;
+    }
+
     /**
      * 更新資料
      * @param $data
