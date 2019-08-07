@@ -24,4 +24,10 @@ class ProductModel_test extends UnitTestCase
         $this->assertTrue($res);
     }
 
+    /**
+     * @test
+     */
+    public function test_sayHello() {
+        echo "hello world";
+    }
 }
