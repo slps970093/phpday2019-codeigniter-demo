@@ -19,36 +19,19 @@ USE `phpday2019`;
 -- 傾印  表格 phpday2019.products 結構
 CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) NOT NULL COMMENT '產品分類ID',
   `name` varchar(50) NOT NULL,
   `price` decimal(10,0) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
--- 取消選取資料匯出。
--- 傾印  表格 phpday2019.users 結構
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) DEFAULT NULL,
-  `password` varchar(150) DEFAULT NULL,
-  `email` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `username` (`username`)
+  KEY `category_id` (`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 取消選取資料匯出。
--- 傾印  表格 phpday2019.user_order_items 結構
-CREATE TABLE IF NOT EXISTS `user_order_items` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `price` decimal(10,2) NOT NULL,
-  `create_time` decimal(10,2) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
-  KEY `product` (`product_id`),
-  CONSTRAINT `product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- 傾印  表格 phpday2019.product_category 結構
+CREATE TABLE IF NOT EXISTS `product_category` (
+  `id` int(11) DEFAULT NULL,
+  `name` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='產品分類';
 
 -- 取消選取資料匯出。
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
