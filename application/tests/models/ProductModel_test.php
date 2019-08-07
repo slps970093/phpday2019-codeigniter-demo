@@ -27,7 +27,19 @@ class ProductModel_test extends UnitTestCase
     /**
      * @test
      */
-    public function test_sayHello() {
-        echo "hello world";
+    public function test_update()
+    {
+        $this->model->truncate();
+
+        $primaryKey = $this->model->append([
+            'name' => 'hello',
+            'price' => 666
+        ],true);
+
+        $this->model->update(['name' => '我要綠燈'],['id' => $primaryKey]);
+
+        $result = $this->model->getWhere(['id' => $primaryKey],1);
+
+        $this->assertEquals(['id' => 1 ,'name' => '我要綠燈' , 'price' => 666], $result);
     }
 }

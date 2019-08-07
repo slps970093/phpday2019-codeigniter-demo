@@ -49,6 +49,10 @@ abstract class Model extends \CI_Model
     {
         $query = $this->db->get_where($this->table,$where,$limit,$offset);
 
+        if ($limit == 1) {
+            return $query->row_array();
+        }
+
         return $query->result_array();
     }
 
