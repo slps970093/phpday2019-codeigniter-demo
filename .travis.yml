@@ -16,4 +16,4 @@ before_install:
 script:
   - composer update
   - cd application/tests
-  - /../../vendor/bin/phpunit -c phpunit.xml
+  - ../../vendor/bin/phpunit -c phpunit.xml
