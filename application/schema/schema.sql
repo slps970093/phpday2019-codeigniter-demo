@@ -33,7 +33,8 @@ CREATE TABLE IF NOT EXISTS `order_item` (
   `order_id` int(11) NOT NULL DEFAULT 0 COMMENT '訂單編號',
   `product_id` int(11) NOT NULL COMMENT '產品編號',
   `price` decimal(10,2) DEFAULT NULL COMMENT '價格',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `order_id` (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='訂單項目';
 
 -- 取消選取資料匯出。
@@ -50,8 +51,9 @@ CREATE TABLE IF NOT EXISTS `products` (
 -- 取消選取資料匯出。
 -- 傾印  表格 phpday2019.product_category 結構
 CREATE TABLE IF NOT EXISTS `product_category` (
-  `id` int(11) DEFAULT NULL,
-  `name` int(11) DEFAULT NULL
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='產品分類';
 
 -- 取消選取資料匯出。
