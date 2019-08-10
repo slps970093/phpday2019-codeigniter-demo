@@ -11,18 +11,19 @@ class BuyProductContext extends MinkContext
 
     public function __construct()
     {
-        require_once  dirname(__FILE__) . DIRECTORY_SEPARATOR. "../../../codeigniter-init.php";
+        require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . "../../../codeigniter-init.php";
         $this->ci = new CI_Controller();
     }
 
     /**
      * @Given /^go to product page$/
      */
-    public function ProductDataBaseInit() {
+    public function ProductDataBaseInit()
+    {
         $this->ci->load->model('ProductModel');
         $this->ci->load->model('ProductCategoryModel');
 
-        /** @var ProductModel $this->ProductModel */
+        /** @var ProductModel $this ->ProductModel */
         $productModel = $this->ci->ProductModel;
         /** @var ProductCategoryModel $productCategory */
         $productCategory = $this->ci->ProductCategoryModel;
@@ -30,7 +31,7 @@ class BuyProductContext extends MinkContext
         $productCategory->truncate();
         $productModel->truncate();
 
-        $category_id = $productCategory->append(['name' => '飲料'],true);
+        $category_id = $productCategory->append(['name' => '飲料'], true);
 
         $productModel->append([
             'category_id' => $category_id,
@@ -50,13 +51,13 @@ class BuyProductContext extends MinkContext
     /**
      * @Given /^I click Coffee$/
      */
-    public function IclickProductAsCoffee() {
+    public function IclickProductAsCoffee()
+    {
         $page = $this->getSession()->getPage();
 
+        $element = $page->find('css', "input[name='items[]'][value='1']");
 
-        $element = $page->find('css' , "input[name='items[]'][value='1']");
-
-        if ( !$element instanceof NodeElement) {
+        if (!$element instanceof NodeElement) {
             throw new Exception('cannot find element');
         }
 
@@ -66,13 +67,14 @@ class BuyProductContext extends MinkContext
     /**
      * @Given /^I click Milk$/
      */
-    public function IclickProductAsMilk() {
+    public function IclickProductAsMilk()
+    {
         $page = $this->getSession()->getPage();
 
 
-        $element = $page->find('css' , "input[name='items[]'][value='2']");
+        $element = $page->find('css', "input[name='items[]'][value='2']");
 
-        if ( !$element instanceof NodeElement) {
+        if (!$element instanceof NodeElement) {
             throw new Exception('cannot find element');
         }
 
