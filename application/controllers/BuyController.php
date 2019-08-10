@@ -12,12 +12,14 @@ class BuyController extends CI_Controller
         $this->load->helper('url');
     }
 
-    public function select() {
+    public function select()
+    {
         $products = $this->ProductModel->getAllProducts();
-        $this->load->view('buy/select',['products' => $products ]);
+        $this->load->view('buy/select', ['products' => $products]);
     }
 
-    public function order() {
+    public function order()
+    {
         $postData = $this->input->post();
 
         try {
@@ -36,7 +38,7 @@ class BuyController extends CI_Controller
                 'address' => $postData['address'],
                 'phone' => $postData['phone'],
                 'total_price' => $total_price
-            ],true);
+            ], true);
 
 
             foreach ($products as $row) {
@@ -55,15 +57,16 @@ class BuyController extends CI_Controller
 
             $this->db->trans_complete();
             redirect('buy/success/' . $orderNo);
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             $this->db->trans_rollback();
             redirect('buy?error=' . $e->getMessage());
         }
     }
 
-    public function success($id) {
-        $orderData = $this->OrderModel->getWhere(['id' => $id],1);
+    public function success($id)
+    {
+        $orderData = $this->OrderModel->getWhere(['id' => $id], 1);
 
-        $this->load->view('buy/success',['orderData' => $orderData]);
+        $this->load->view('buy/success', ['orderData' => $orderData]);
     }
 }

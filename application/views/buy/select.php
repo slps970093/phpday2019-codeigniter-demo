@@ -41,16 +41,16 @@
                     </tbody>
                 </table>
 
-                <label for="name">收件人名稱</label>
+                <label for="name">Name</label>
                 <input type="text" class="form-control" name="name" required>
 
-                <label for="address">地址</label>
+                <label for="address">Address</label>
                 <input type="text" class="form-control" name="address" required>
 
-                <label for="phone">電話</label>
+                <label for="phone">Phone</label>
                 <input type="text" class="form-control" name="phone" required>
 
-                <button type="submit" class="btn btn-primary">下單</button>
+                <button type="submit" class="btn btn-primary">Buy</button>
 
             </form>
         </div>

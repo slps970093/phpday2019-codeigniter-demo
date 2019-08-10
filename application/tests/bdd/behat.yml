@@ -2,12 +2,12 @@ default:
   suites:
     default:
       contexts:
-        - FeatureContext
+        - BuyProductContext
   extensions:
     Behat\MinkExtension:
       browser_name: chrome
       javascript_session: selenium2
-      base_url: http://phpday2019.localhost/
+      base_url: http://127.0.0.1/phpday2019/
 
       sessions:
         my_session:
