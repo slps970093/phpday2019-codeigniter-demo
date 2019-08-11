@@ -18,7 +18,7 @@ class BuyProductContext extends MinkContext
     /**
      * @Given /^go to product page$/
      */
-    public function ProductDataBaseInit()
+    public function goToProductPage()
     {
         $this->ci->load->model('ProductModel');
         $this->ci->load->model('ProductCategoryModel');
